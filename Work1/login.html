@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 350px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .mytitle {
+            height: 180px;
+            background-image: url('https://i.pinimg.com/originals/d6/66/8a/d6668a8bde84a7c2984dcbb5b43d0b90.jpg');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .mytitle h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .mytitle h5 {
+            margin: 8px 0 0;
+            font-weight: normal;
+        }
+
+        .form-box {
+            padding: 24px;
+        }
+
+        .form-box p {
+            margin-bottom: 16px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357acc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="mytitle">
+            <h1>로그인 페이지</h1>
+            <h5>아이디와 비밀번호를 입력해주세요</h5>
+        </div>
+        <div class="form-box">
+            <input type="text" id="username" placeholder="아이디"><br><br>
+            <input type="password" id="password" placeholder="비밀번호"><br><br>
+            <button onclick="login()">로그인</button>
+
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const id = document.getElementById("username").value;
+            const pw = document.getElementById("password").value;
+
+            // 하드코딩된 로그인 정보 (예시)
+            const validId = "youmin";
+            const validPw = "040805";
+
+            if (id === validId && pw === validPw) {
+                // 로그인 성공 → main.html로 이동
+                console.log('엔터키를 눌렀습니다.');
+                window.location.href = "main.html";
+            } else {
+                alert("아이디 또는 비밀번호가 잘못되었습니다.");
+            }
+        }
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") login();
+        });
+
+    </script>
+</body>
+
+
+</html>
